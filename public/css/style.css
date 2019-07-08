@@ -1,0 +1,74 @@
+body{
+	font-size: 12px!important;
+	color:#242629!important;
+}
+
+.btn-group-sm > .btn, .btn-sm{
+	font-size: 12px!important;
+}
+
+.btn{
+	font-size: 12px!important;
+}
+
+.h3, h3{
+	font-size: 20px;
+}
+
+.sidebar .nav-item .nav-link span{
+	font-size: 12px!important;
+}
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item, .sidebar .nav-item .collapsing .collapse-inner .collapse-item{
+	font-size: 12px!important;
+}
+
+.form-control{
+	font-size: 12px!important;
+}
+
+.topbar{
+	height: 50px!important;
+}
+
+.table{
+	color: #242629;
+}
+
+.table-hover:hover{
+	cursor: pointer!important;
+}
+
+.table td, .table th{
+	padding: 5px 10px 5px 10px;
+	vertical-align: middle!important;
+}
+
+.sub-table{
+	padding: 12px!important;
+    background-color: #4e73df;
+    color: white;
+}
+
+.sub-total{
+	padding: 12px!important;
+    background-color: #082245;
+    color: white;
+}
+
+.sub-subtotal{
+	background-color: none;
+}
+
+.tab-content{
+	padding: 20px!important;
+}
+
+.pad-10{
+	padding-left: 20px!important;
+}
+
+.modal-body {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
