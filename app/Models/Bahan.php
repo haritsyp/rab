@@ -14,5 +14,5 @@ class Bahan extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['nama_bahan','satuan','harga'];
+    protected $fillable = ['nama_bahan','satuan','harga','kategori_bahan'];
 }

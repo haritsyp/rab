@@ -21,6 +21,17 @@
     <input type="number" class="form-control" placeholder="Ex: 500000000" name="harga" value="{{ $bahan->harga ?? '' }}">
   </div>
 </div>
+ <div class="form-group row">
+  <label for="colFormLabel" class="col-sm-2 col-form-label">Kategori</label>
+  <div class="col-sm-10">
+    <select class="form-control" name="kategori_bahan">
+      <option>----- PILIH KATEGORI ----</option>
+    <option>Material</option>
+      <option>Upah</option>
+     
+    </select>
+  </div>
+</div>
 <div class="form-group row">
   <label for="colFormLabel" class="col-sm-2 col-form-label"></label>
   <div class="col-sm-10">

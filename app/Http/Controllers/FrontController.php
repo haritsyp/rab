@@ -10,7 +10,7 @@ class FrontController extends Controller
 
     public function index() {
         $menu = [];
-        $header = DB::select("SELECT * FROM HEADER");
+        $header = DB::select("SELECT * FROM HEADER a join menu b on a.id_header = b.id_header join MENU_PARENT c on c.id_menu=b.id_menu join detail_group d on d.id_parent = c.id_parent where id_jabatan = session('jabatan')");
         foreach ($header as $key => $value) {
             $menu[$key]['nama_header'] = $value->nama_header;
             $mn = DB::select("SELECT * FROM MENU WHERE ID_HEADER = $value->id_header");

@@ -14,7 +14,7 @@
                         <th>Nama bahan</th>
                         <th>Satuan</th>
                         <th>Harga</th>
-                        
+                        <th>Kategori</th>
                         <th width="128px">Action</th>
                     </tr>
                 </thead>
@@ -25,6 +25,7 @@
                         <td>{{ $d->nama_bahan }}</td>
                         <td>{{ $d->satuan }}</td>
                         <td>{{ $d->harga}}</td>
+                        <td>{{ $d->kategori_bahan}}</td>
                         <td>
                             <a href="{{ route('bahan.edit',$d->id_bahan) }}" class="btn-sm btn-primary"><i class="fa fa-pencil-alt"></i> Ubah</a>
                             <a href="javascript:void(0)" class="delete btn-sm btn-danger" data-id="{{ $d->id_bahan }}"><i class="fa fa-trash-alt"></i> Hapus</a>

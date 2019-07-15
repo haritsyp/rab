@@ -24,18 +24,21 @@ class RabController extends Controller
 
     public function create(){
         $this->page_attributes->title = 'Tambah Rencana Anggaran Biaya'; 
+        $this->page_attributes->icon = 'Tambah Rencana Anggaran Biaya'; 
         $proyek = Proyek::get();
         $this->view = view('pages.rab.add',compact('proyek'));
         return $this->generateView(); 
 
     }
 
+  
+
     public function show(Request $request, $id){
-        $rab = Rab::find($id);
+        $rab = Rab::where('rab.id_rab',$id)->leftJoin('proyek', 'proyek.id_proyek','=','rab.id_proyek')->first();
         $kategori = Kategori::get();
         $satuan = Satuan::get();
         $this->page_attributes->title = 'Tambah Detail RAB';
-        $this->view = view('pages.rab.detailrab',compact('rab','kategori','satuan'));
+        $this->view = view('pages.rab.detailrab', compact('rab','kategori','satuan'));
         return $this->generateView(); 
     }
 
@@ -63,7 +66,13 @@ class RabController extends Controller
 
 
     public function destroy($id){
+        $detailrab = DetailRab::where('id_rab',$id)->get();
+        foreach ($detailrab as $key => $value) {
+            $detailbahan = DetailBahan::where('id_detail_rab',$value->id_detail_rab)->delete();
+        }
+        $detailrab = DetailRab::where('id_rab',$id)->delete();
         $rab = rab::find($id)->delete();
+        
     }
 
     public function get_data(Request $request){
@@ -95,7 +104,7 @@ class RabController extends Controller
         $detailrab = DetailRab::find($request->id_detail_rab);
         $detailrab->fill($request->all());
         $detailrab->save();
-
+        if(isset($request->data)){
         foreach ($request->data as $key => $value) {
             if($value['id_detail_bahan'] == -1){
                 $detailrab = new DetailBahan();
@@ -116,6 +125,7 @@ class RabController extends Controller
                 $detailrab->save();
             }
         }
+    }
         return response()->json(['msg' => 'success']);
     }
 

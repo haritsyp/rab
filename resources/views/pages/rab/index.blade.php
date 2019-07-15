@@ -52,8 +52,9 @@
         $('#tabelku').DataTable();
     });
 
-    $(document).on('click', '.delete', function (e) {
+    $('.delete').click(function (e) {
             e.preventDefault();
+            e.stopPropagation();
             var id = $(this).data('id');
             var token = $("meta[name='csrf-token']").attr("content");
             swal({
